@@ -4,6 +4,7 @@
 
 def highest_product(a_list):
     result = 1
+    counter = 0
     if len(a_list) < 3:
         print "To fine highest product of three we need list len more then 3"
         return a_list
@@ -12,6 +13,7 @@ def highest_product(a_list):
             result *= i
         return result
     if len(a_list) > 3:
+
 
 
     product_list = []
