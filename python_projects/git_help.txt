@@ -1,0 +1,2 @@
+# remove idea file
+git rm -r --cached python_projects/.idea
