@@ -30,8 +30,6 @@ class AbcComposition(object):
         self.Abc.get_abc()
         self.Abc1.get_abc()
 
-
-
 c = AbcComposition()
 c.get_abc()
 
