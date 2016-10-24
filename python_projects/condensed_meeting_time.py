@@ -1,4 +1,4 @@
-def condensed_meeting_time(a_list):
+def condensed_meeting_time(meetings):
     """
     take a list of meeting times and
     returns a list of condensed ranges
@@ -7,32 +7,24 @@ def condensed_meeting_time(a_list):
     # first find the len of list
     # if list have just one tuple then return
 
-    new = []
-    if len(a_list) <= 1:
-        return a_list
+    sorted_list = sorted(meetings)
 
-    if len(a_list) == 2 and a_list[0] < a_list[1]:
-        return a_list
-    else:
-        while len(new) < 2:
-            if a_list[0][0] < a_list[1][0]:
-                new.append((a_list[0][0]))
-            else:
-                new.append((a_list[0][1]))
-            print new
-        # for i in a_list:
-        #     for j in i:
-        #         if max < j:
-        #             max = j,
-        #         else:
-        #             if min < j:
-        #                 return min
-        #             else:
-        #                 min = j
-        #     print max, min
+
+    merged_meetings = [sorted_list[0]]
+
+
+    for current_meeting_start, current_meeting_end in sorted_list[1:]:
+        last_merged_meeting_start, last_merged_meeting_end = merged_meetings[-1]
+
+        if (current_meeting_start <= last_merged_meeting_end):
+            merged_meetings[-1] = (last_merged_meeting_start, last_merged_meeting_end)
+
+        else:
+            merged_meetings.append((current_meeting_start, current_meeting_end))
+    return merged_meetings
 
 
 
 print condensed_meeting_time([(0, 1)])
 print condensed_meeting_time([(0, 1), (2, 3)])
-print condensed_meeting_time([(3, 1), (2, 3)])
+print condensed_meeting_time([(1, 4), (2, 3), (4, 5)])
