@@ -73,6 +73,13 @@ def file_exercise_3():
         for i, v in enumerate(result):
             print i+1, v
 
+
+import os
+import datetime
+def modification_date(filename):
+    t = os.path.getmtime(filename)
+    return datetime.datetime.fromtimestamp(t)
+
 read_write_file()
 read_file_substring_snake()
 file_exercise_3()
